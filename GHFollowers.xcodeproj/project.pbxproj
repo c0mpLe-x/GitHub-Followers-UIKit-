@@ -32,6 +32,8 @@
 		87A07F302C0C9F5100E1DD4C /* GFFollowerItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F2F2C0C9F5100E1DD4C /* GFFollowerItemViewController.swift */; };
 		87A07F332C0CA9A900E1DD4C /* UserInfoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F322C0CA9A900E1DD4C /* UserInfoViewControllerDelegate.swift */; };
 		87A07F362C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F352C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift */; };
+		87A07F382C0CBB8400E1DD4C /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F372C0CBB8400E1DD4C /* PersistenceManager.swift */; };
+		87A07F3A2C0CD12A00E1DD4C /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F392C0CD12A00E1DD4C /* FavoriteTableViewCell.swift */; };
 		87A6B3F52C088EBC0000A67A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A6B3F42C088EBC0000A67A /* AppDelegate.swift */; };
 		87A6B3F72C088EBC0000A67A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A6B3F62C088EBC0000A67A /* SceneDelegate.swift */; };
 		87A6B3FE2C088EC30000A67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A6B3FD2C088EC30000A67A /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		87A07F2F2C0C9F5100E1DD4C /* GFFollowerItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFFollowerItemViewController.swift; sourceTree = "<group>"; };
 		87A07F322C0CA9A900E1DD4C /* UserInfoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewControllerDelegate.swift; sourceTree = "<group>"; };
 		87A07F352C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewControllerDelegate.swift; sourceTree = "<group>"; };
+		87A07F372C0CBB8400E1DD4C /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		87A07F392C0CD12A00E1DD4C /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		87A6B3F12C088EBC0000A67A /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A6B3F42C088EBC0000A67A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A6B3F62C088EBC0000A67A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 		87A07F072C09DD9D00E1DD4C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				87A07F372C0CBB8400E1DD4C /* PersistenceManager.swift */,
 				87A07F082C09DDAD00E1DD4C /* NetworkManager.swift */,
 			);
 			path = Managers;
@@ -150,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				87A07F0E2C0A00D200E1DD4C /* FollowerCell.swift */,
+				87A07F392C0CD12A00E1DD4C /* FavoriteTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				87A07EFE2C098CA400E1DD4C /* GFContainerView.swift in Sources */,
 				87A07F062C09AF6100E1DD4C /* User.swift in Sources */,
 				87A07F362C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift in Sources */,
+				87A07F3A2C0CD12A00E1DD4C /* FavoriteTableViewCell.swift in Sources */,
 				87A07F0F2C0A00D200E1DD4C /* FollowerCell.swift in Sources */,
 				87A07EFA2C08EA6B00E1DD4C /* GFAlertViewController.swift in Sources */,
 				87A07F2C2C0C97BA00E1DD4C /* UserItemInfoViewController.swift in Sources */,
@@ -353,6 +360,7 @@
 				87A07F042C09AE8100E1DD4C /* Follower.swift in Sources */,
 				87A07F132C0A20B100E1DD4C /* UIHelper.swift in Sources */,
 				87A6B4092C0898BD0000A67A /* SearchViewController.swift in Sources */,
+				87A07F382C0CBB8400E1DD4C /* PersistenceManager.swift in Sources */,
 				87A07EF62C08E79700E1DD4C /* GFTitleLabel.swift in Sources */,
 				878961502C08B053000C701A /* GitFollowersTextField.swift in Sources */,
 				87A07F0C2C09ED7200E1DD4C /* GFError.swift in Sources */,

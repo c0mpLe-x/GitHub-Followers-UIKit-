@@ -40,6 +40,8 @@ class FollowerListViewController: UIViewController {
     private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     private func configureCollectionView() {
@@ -63,7 +65,7 @@ class FollowerListViewController: UIViewController {
         Task {
             do {
                 let followers = try await NetworkManager.shared.getFollowers(for: username, page: page)
-                await dismissLoadingView()
+                dismissLoadingView()
                 if followers.count < 100 { hasMoreFollowers = false }
                 self.followers.append(contentsOf: followers)
                 if followers.isEmpty {
@@ -120,6 +122,21 @@ extension FollowerListViewController: UICollectionViewDelegate {
         
         let navigationController = UINavigationController(rootViewController: userInfoViewController)
         present(navigationController, animated: true)
+    }
+    
+    @objc func addButtonTapped() {
+        showLoadingView()
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                dismissLoadingView()
+                let follower = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                try await PersistenceManager.updateWith(favorite: follower, actionType: .add)
+                presentGFAlert(title: "🎉 New favorite", message: "You add \(follower.login) in favotite", buttonTitle: "OK")
+            } catch let error as GFError {
+                presentGFAlert(title: "Something went wrong", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
     }
 }
 
