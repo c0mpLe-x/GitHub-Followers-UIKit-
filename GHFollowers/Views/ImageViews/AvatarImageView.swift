@@ -31,10 +31,8 @@ class AvatarImageView: UIImageView {
     func downloadImage(from url: URL) {
         Task {
             if let image = cache.object(forKey: url as NSURL) {
-                print("CACHE: I am have image with: \(url)")
                 self.image = image
             } else {
-                print("URL: I am download image with: \(url)")
                 let (data, _) = try await URLSession.shared.data(from: url)
                 guard let uiImage = UIImage(data: data) else { return }
                 cache.setObject(uiImage, forKey: url as NSURL)

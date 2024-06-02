@@ -23,7 +23,7 @@ class GFBodyLabel: UILabel {
     }
     
     private func configure() {
-        textColor = .label
+        textColor = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.75
