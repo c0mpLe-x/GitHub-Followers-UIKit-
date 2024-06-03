@@ -34,6 +34,7 @@
 		87A07F362C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F352C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift */; };
 		87A07F382C0CBB8400E1DD4C /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F372C0CBB8400E1DD4C /* PersistenceManager.swift */; };
 		87A07F3A2C0CD12A00E1DD4C /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F392C0CD12A00E1DD4C /* FavoriteTableViewCell.swift */; };
+		87A07F3D2C0D95F500E1DD4C /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A07F3C2C0D95F400E1DD4C /* GFTabBarController.swift */; };
 		87A6B3F52C088EBC0000A67A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A6B3F42C088EBC0000A67A /* AppDelegate.swift */; };
 		87A6B3F72C088EBC0000A67A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A6B3F62C088EBC0000A67A /* SceneDelegate.swift */; };
 		87A6B3FE2C088EC30000A67A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A6B3FD2C088EC30000A67A /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		87A07F352C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		87A07F372C0CBB8400E1DD4C /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		87A07F392C0CD12A00E1DD4C /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		87A07F3C2C0D95F400E1DD4C /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		87A6B3F12C088EBC0000A67A /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87A6B3F42C088EBC0000A67A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87A6B3F62C088EBC0000A67A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		87A07F002C09A89200E1DD4C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				87A07F3B2C0D959700E1DD4C /* TabbarController */,
 				87A07F202C0B2B5D00E1DD4C /* View Controllers */,
 				87A07F1F2C0B2B5300E1DD4C /* Labels */,
 				87A07F1E2C0B2B4400E1DD4C /* ImageViews */,
@@ -233,6 +236,14 @@
 			path = Delegates;
 			sourceTree = "<group>";
 		};
+		87A07F3B2C0D959700E1DD4C /* TabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				87A07F3C2C0D95F400E1DD4C /* GFTabBarController.swift */,
+			);
+			path = TabbarController;
+			sourceTree = "<group>";
+		};
 		87A6B3E82C088EBC0000A67A = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +365,7 @@
 				87A07F362C0CACA900E1DD4C /* FollowerListViewControllerDelegate.swift in Sources */,
 				87A07F3A2C0CD12A00E1DD4C /* FavoriteTableViewCell.swift in Sources */,
 				87A07F0F2C0A00D200E1DD4C /* FollowerCell.swift in Sources */,
+				87A07F3D2C0D95F500E1DD4C /* GFTabBarController.swift in Sources */,
 				87A07EFA2C08EA6B00E1DD4C /* GFAlertViewController.swift in Sources */,
 				87A07F2C2C0C97BA00E1DD4C /* UserItemInfoViewController.swift in Sources */,
 				87A07F112C0A017900E1DD4C /* AvatarImageView.swift in Sources */,

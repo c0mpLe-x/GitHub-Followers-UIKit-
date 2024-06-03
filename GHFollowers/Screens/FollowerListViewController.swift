@@ -23,6 +23,16 @@ class FollowerListViewController: UIViewController {
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
     
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -55,7 +65,6 @@ class FollowerListViewController: UIViewController {
     private func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a username"
         navigationItem.searchController = searchController
     }
@@ -71,6 +80,7 @@ class FollowerListViewController: UIViewController {
                 if followers.isEmpty {
                     let message = "This user doesn`t have any followers"
                     showEmptyStateView(message: message, view: view)
+                    navigationItem.searchController?.searchBar.isHidden = true
                 }
                 await updateData(on: followers)
             } catch {
@@ -78,6 +88,7 @@ class FollowerListViewController: UIViewController {
                     presentGFAlert(title: "We have a problem", message: error.rawValue, buttonTitle: "OK")
                 } else {
                     presentDefaultAlert()
+                    dismissLoadingView()
                 }
             }
         }
@@ -109,6 +120,7 @@ extension FollowerListViewController: UICollectionViewDelegate {
             guard hasMoreFollowers else { return }
             page += 1
             getFollowers(username: username)
+           
         }
     }
     
@@ -140,21 +152,20 @@ extension FollowerListViewController: UICollectionViewDelegate {
     }
 }
 
-extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filterFollowers.removeAll()
+            Task {
+                await updateData(on: followers)
+            }
+            isSearching = false
+            return
+        }
         isSearching = true
         filterFollowers = followers.filter({ $0.login.lowercased().contains(filter.lowercased()) })
         Task {
             await updateData(on: filterFollowers)
-        }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("Cancel button clicked")
-        isSearching = false
-        Task {
-            await updateData(on: followers)
         }
     }
 }
@@ -166,14 +177,12 @@ extension FollowerListViewController: FollowerListViewControllerDelegate {
         followers.removeAll()
         filterFollowers.removeAll()
         page = 1
-        collectionView.setContentOffset(.zero, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         getFollowers(username: username)
     }
-    
-    
 }
 
 
 #Preview {
-    FollowerListViewController()
+    FollowerListViewController(username: "Test")
 }
