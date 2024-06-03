@@ -8,7 +8,6 @@
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
-
     static let reuseID = "favoriteCell"
     
     let avatarImageView = AvatarImageView(frame: .zero)

@@ -37,6 +37,7 @@ enum PersistenceManager {
         guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
             return []
         }
+
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
